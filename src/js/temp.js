@@ -233,7 +233,7 @@ function Homepage() {
         <div className="hero">
           <div className="filbtm">
             <h1>Some stories never end!</h1>
-            <h2>Create your team. | Join the Tournament. | Battle till the last breath.</h2>
+            <h2>Create your team. || Join the Tournament. || Battle till the last breath.</h2>
             <div className="btn">
               <button className="primary-btn">Register Now</button>
               <button className="secondary-btn">Discover Tournaments</button>
