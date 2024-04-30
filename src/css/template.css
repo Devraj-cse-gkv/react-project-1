@@ -8,13 +8,25 @@
 }
 
 body{
-  background-color: rgb(31, 3, 39);
+  background-color: rgb(1, 1, 30);
   margin: 0;
   padding: 0;
+}
+button{
+  border: none;
+  outline: none;
+  background-color: transparent;
+  &:hover{
+    cursor: pointer;
+  }
+  &:focus{
+    outline: none;
+  }
 }
 
 a {
   text-decoration: none;
+  cursor: pointer;
   &:hover{
     text-decoration: none;
   }
@@ -241,6 +253,9 @@ i {
 .side-close {
   text-align: end;
   margin-bottom: 40px;
+  button{
+    border-radius: 50%;
+  }
 
   img {
     height: 30px;
@@ -571,23 +586,6 @@ i {
     transform: scale(1);
   }
 }
-
-:root {
-  --primary-color: #ff0000;
-  --secondary-color: aliceblue;
-  --tertiary-color: #150518;
-  --base-font-size: 16px;
-  --black: #000000;
-  --white: #ffffff;
-  /* --base-font:Sriracha;
-  --base-font2:Righteous; */
-}
-
-body{
-  background-color: rgb(31, 3, 39);
-  margin: 0;
-  padding: 0;
-}
 .hero{
   height: 500px;
   overflow: hidden;
@@ -624,7 +622,8 @@ body{
   border: 0;
   font-size: 18px;
   transition: transform 0.3s ease-in-out;
-  margin: 5px;
+  margin: 8px;
+  background-color: aliceblue;
   &:hover{
     transform: scale(1.1);
   }
@@ -637,11 +636,25 @@ body{
   background-color: var(--primary-color);
   color: #ffffff;
 }
+hr{
+  margin: 0 50px;
+}
+.featured{
+  background: linear-gradient(35deg,rgb(1, 1, 30) 0%, rgba(1, 1, 30, 0) 30%, rgba(99, 4, 4, 0.799) 100%);
+  padding: 15px 0;
+  >h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: clamp(2.8125rem, 2.2727rem + 2.6989vw, 4rem);
+    font-family: Genos;
+    font-weight: 600;
 
+  }
+}
 .scroll{
-  background-color: rgba(61, 57, 57, 0.703);
-  padding: 30px;
+  padding: 10px 30px;
   display: flex;
+  justify-content: space-around;
   overflow-x: scroll;
   gap: 10px;
   scroll-snap-type: x mandatory;
@@ -650,17 +663,39 @@ body{
   }
 }
 .scroll:hover>.scr-card:not(:hover){
-  filter: blur(2px);
-  opacity: 0.8;
+  /* filter: blur(2px); */
+  opacity: 0.6;
+}
+
+.qfilter{
+  padding: 20px 60px;text-align: end;
+  label{
+    font-size: var(--base-font-size);
+    color: aliceblue;
+    margin-right: 40px;
+  }
+  select{
+    background-color: transparent;
+    padding: 6px;
+    color: aliceblue;
+    width: 120px;
+  }
+  option{
+    background-color: rgb(31, 3, 39);
+  }
+}
+.scroll .scr-card{
+  margin-top: 50px;
 }
 
 .scr-card{
   position: relative;
   background-color: rgb(34, 32, 32);
-  scroll-snap-align: start;
-  height: 280px;
-  min-width: 180px;
+  scroll-snap-align: center;
+  width: clamp(150px, 40vw, 180px);
   padding: 7px;
+  min-height: 300px;
+  margin-bottom: 50px;
   .scr-img{
     height: 100px;
     overflow: hidden;
@@ -671,8 +706,10 @@ body{
   }
   h2{
     color: rgb(255, 255, 255);
-    font-family: var(--base-font2);
-    font-size: 18px;
+    font-family: Genos;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 25px 0 5px 0;
   }
   ul{
     overflow: hidden;
@@ -695,13 +732,15 @@ body{
     }
   }
   .scr-btn{
+    position: absolute;
+    bottom: 5px;
     display: flex;
     justify-content: space-around;
     .scr-join{
       padding: 8px 28px;
       font-family: var(--base-font);
       font-size: 18px;
-      border-radius: 7px;
+      border-radius: 7px 0 0 7px;
       background-color: var(--primary-color);
       color: white;
       border: 0;
@@ -711,7 +750,7 @@ body{
     }
     .save{
       border: 0;
-      border-radius: 6px;
+      border-radius: 0 6px 6px 0;
       background-color: var(--secondary-color);
       padding: 8px 12px;
       &:active{
@@ -730,16 +769,26 @@ body{
     -webkit-animation: bounce_613 0.4s linear;
     animation: bounce_613 0.4s linear;
     transform: scale(1.2);
-    z-index: 555;
+    filter: brightness(140%);
+    z-index: 10;
   }
   .tag{
     position: absolute;
     top: 15px;
-    left: 0px;
+    right: 0px;
     height: 20px;
     background-color: rgb(255, 0, 0);
     padding: 0 5px 0 10px;
     color: white;
+  }
+  .tag-featured{
+    position: absolute;
+    top: 110px;
+    left: 10px;
+    font-size: 12px;
+    border-radius: 20px;
+    padding: 1px 10px;
+    color: rgb(0, 0, 0);
   }
 }
 
@@ -747,10 +796,107 @@ button{
   cursor: pointer;
 }
 
+.events{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding:50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 .section1{
-  min-height: 80vh;
+  position: relative;
+  background: linear-gradient(45deg,rgb(94, 6, 6) 0%, rgba(37, 1, 1, 0) 50%,rgb(1, 1, 30) 100%);
+  >a{
+    position: absolute;
+    bottom: 10px;
+    right: 45%;
+    &:hover{
+      color: aliceblue;
+    }
+  }
+  >h2,p{
+    text-align: center;
+    color: aliceblue;
+  }
+  >h2{
+    font-size: clamp(4.0625rem, 3.4943rem + 2.8409vw, 5.3125rem);    font-family: Genos;
+    font-weight: 800;
+  }
+  >p{
+    font-size: clamp(1.875rem, 1.0227rem + 4.2614vw, 3.75rem);    font-family: Genos;
+    font-weight: 600;
+  }
+}
+.section2{
+  min-height: 100px;
+  h2{
+    margin: 35px 0 95px 0;
+    text-align: center;
+    color: aliceblue;
+    font-size: clamp(2.8125rem, 2.2727rem + 2.6989vw, 4rem);
+    font-family: Genos;
+    font-weight: 600;
+  }
+  .game-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    padding: 0 10px;
+    margin: 0px auto;
+    .game-card{
+      position: relative;
+      border-radius: 15% 0% 10% 0;
+      height: 250px;
+      width: clamp(140px, 40vw, 180px);
+      background-color: rgb(237, 149, 26);
+      margin-bottom: 40px;
+      .gcard-blur{
+        position: absolute;
+        border-radius: 15% 0% 10% 0;
+        color: aliceblue;
+        padding: 100px 0px 40px 15px;
+        top: 0;
+        font-family: Genos;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(transparent 0%,rgba(0, 0, 0, 0.841) 70%,rgb(0, 0, 0) 100%);
+        h2{
+          margin:0; 
+          font-size: 35px;
+          font-weight: 600;
+        }
+        p,a{
+          font-size: 18px;
+        }
+        a{
+          position: absolute;
+          color: aliceblue;
+          bottom: 20px;
+          background-color: #ff0000;
+          padding: 5px 8px;
+          border-radius: 7px;
+          &:hover{
+            transform: scale(1.1);
+          }
+          &:active{
+            transform: scale(0.9);
+          }
+        }
+      }
+      img{
+        position: absolute;
+        top: -70px;
+        right: -20px;
+        height: 280px;
+      }
+    }
+  }
 }
 
+.section3{
+}
 
 
 @media screen and (max-width:720px) {
@@ -803,11 +949,9 @@ footer{
     color: aliceblue;
   }
 }
-.f-cont{
- width: 1200px;
-}
+
 .ftop{
-  padding: 30px 0;
+ 
   margin: 10px;
   border-bottom: 1px solid rgb(187, 180, 180);
   form{
@@ -908,11 +1052,10 @@ footer{
   border-top: 1px solid aqua;
   padding: 40px 0 10px 0;
   .flink{
-    margin: 0 20px 20px 0;
+    margin: 20px 0 20px 0;
     a{
       padding: 5px;
       border-radius: 20%;
-      margin: 5px;
       &:hover{
         color: aqua;
         background-color: rgb(4, 46, 94);

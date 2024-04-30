@@ -7,7 +7,7 @@ const links =
     },
     {
       name: "Tournaments",
-      url: "tournament"
+      url: "tournaments"
     },
     {
       name: "Blogs",
@@ -161,96 +161,244 @@ const admin =
 const events = [
   {
     name: "Tournament 1",
-    image: "./hero-egame.jpg",
+    key: "1",
+    image: "/game1.jpg",
     price: "$10",
     schedule: "May 10, 2024",
     mode: "Single Elimination",
-    status: "Coming soon"
+    status: "Coming soon",
+    featured:"recent",
+    bg:"rgb(247, 162, 98)",
   },
   {
     name: "Tournament 2",
-    image: "/hero-egame.jpg",
+    key: "2",
+    image: "/game2.jpg",
     price: "$20",
     schedule: "June 5, 2024",
     mode: "Round Robin",
-    status: "Live"
+    status: "● Live",
+    featured: "featured",
+    bg:"rgb(19, 198, 147)",
   },
   {
     name: "Tournament 3",
-    image: "/hero-egame.jpg",
+    key: "3",
+    image: "/game3.jpg",
     price: "Free",
     schedule: "July 20, 2024",
     mode: "Double Elimination",
-    status: "Analyzing"
-  },{
+    status: "Analyzing",
+    featured: ""
+  },
+  {
     name: "Tournament 1",
-    image: "./hero-egame.jpg",
+    key: "4",
+    image: "./game1.jpg",
     price: "$10",
     schedule: "May 10, 2024",
     mode: "Single Elimination",
-    status: "Coming soon"
+    status: "Coming soon",
+    featured:"recent",
+    bg:"rgb(247, 162, 98)",
   },
   {
     name: "Tournament 2",
-    image: "/hero-egame.jpg",
+    key: "5",
+    image: "/game2.jpg",
     price: "$20",
     schedule: "June 5, 2024",
     mode: "Round Robin",
-    status: "Live"
+    status: "● Live",
+    featured: "featured",
+    bg:"rgb(19, 198, 147)"
   },
   {
     name: "Tournament 3",
-    image: "/hero-egame.jpg",
+    key: "6",
+    image: "/game3.jpg",
     price: "Free",
     schedule: "July 20, 2024",
     mode: "Double Elimination",
-    status: "Analyzing"
-  },{
+    status: "Analyzing",
+    featured: ""
+  },
+  {
     name: "Tournament 1",
-    image: "./hero-egame.jpg",
+    key: "7",
+    image: "./game1.jpg",
     price: "$10",
     schedule: "May 10, 2024",
     mode: "Single Elimination",
-    status: "Coming soon"
+    status: "Coming soon",
+    featured:"recent",
+    bg:"rgb(247, 162, 98)",
   },
   {
     name: "Tournament 2",
-    image: "/hero-egame.jpg",
+    key: "8",
+    image: "/game2.jpg",
     price: "$20",
     schedule: "June 5, 2024",
     mode: "Round Robin",
-    status: "Live"
+    status: "● Live",
+    featured: "featured",
+    bg:"rgb(19, 198, 147)"
   },
   {
     name: "Tournament 3",
-    image: "/hero-egame.jpg",
+    key: "9",
+    image: "/game3.jpg",
     price: "Free",
     schedule: "July 20, 2024",
     mode: "Double Elimination",
-    status: "Analyzing"
-  },{
+    status: "Analyzing",
+    featured: ""
+  },
+  {
     name: "Tournament 1",
-    image: "./hero-egame.jpg",
+    key: "10",
+    image: "./game1.jpg",
     price: "$10",
     schedule: "May 10, 2024",
     mode: "Single Elimination",
-    status: "Coming soon"
+    status: "Coming soon",
+    featured:"recent",
+    bg:"rgb(247, 162, 98)",
   },
   {
     name: "Tournament 2",
-    image: "/hero-egame.jpg",
+    key: "11",
+    image: "/game2.jpg",
     price: "$20",
     schedule: "June 5, 2024",
     mode: "Round Robin",
-    status: "Live"
+    status: "● Live",
+    featured: "featured",
+    bg:"rgb(19, 198, 147)"
   },
   {
     name: "Tournament 3",
-    image: "/hero-egame.jpg",
+    key: "12",
+    image: "/game3.jpg",
     price: "Free",
     schedule: "July 20, 2024",
     mode: "Double Elimination",
-    status: "Analyzing"
-  }
+    status: "Analyzing",
+    featured: ""
+  },
+  {
+    name: "Tournament 1",
+    key: "13",
+    image: "./game1.jpg",
+    price: "$10",
+    schedule: "May 10, 2024",
+    mode: "Single Elimination",
+    status: "Coming soon",
+    featured: "recent",
+    bg: "rgb(247, 162, 98)",
+  },
+  {
+    name: "Tournament 2",
+    key: "14",
+    image: "/game2.jpg",
+    price: "$20",
+    schedule: "June 5, 2024",
+    mode: "Round Robin",
+    status: "● Live",
+    featured: "featured",
+    bg: "rgb(19, 198, 147)"
+  },
+  {
+    name: "Tournament 3",
+    key: "15",
+    image: "/game3.jpg",
+    price: "Free",
+    schedule: "July 20, 2024",
+    mode: "Double Elimination",
+    status: "Analyzing",
+    featured: ""
+  },
+  {
+    name: "Tournament 1",
+    key: "16",
+    image: "./game1.jpg",
+    price: "$10",
+    schedule: "May 10, 2024",
+    mode: "Single Elimination",
+    status: "Coming soon",
+    featured: "recent",
+    bg: "rgb(247, 162, 98)",
+  },
+  {
+    name: "Tournament 2",
+    key: "17",
+    image: "/game2.jpg",
+    price: "$20",
+    schedule: "June 5, 2024",
+    mode: "Round Robin",
+    status: "● Live",
+    featured: "featured",
+    bg: "rgb(19, 198, 147)"
+  },
+  {
+    name: "Tournament 3",
+    key: "18",
+    image: "/game3.jpg",
+    price: "Free",
+    schedule: "July 20, 2024",
+    mode: "Double Elimination",
+    status: "Analyzing",
+    featured: ""
+  },
+  {
+    name: "Tournament 1",
+    key: "19",
+    image: "./game1.jpg",
+    price: "$10",
+    schedule: "May 10, 2024",
+    mode: "Single Elimination",
+    status: "Coming soon",
+    featured: "recent",
+    bg: "rgb(247, 162, 98)",
+  },
+  {
+    name: "Tournament 2",
+    key: "20",
+    image: "/game2.jpg",
+    price: "$20",
+    schedule: "June 5, 2024",
+    mode: "Round Robin",
+    status: "● Live",
+    featured: "featured",
+    bg: "rgb(19, 198, 147)"
+  },
+  
 ];
-export { links, admin, events }
+const games= [
+  {
+    id:'gamebgmi',
+    name:'Bgmi',
+    desc:'Battle Ground Mobile India',
+    image:'/gameimg.jpg',
+  },
+  {
+    id:'gamevalo',
+    name:'valorant',
+    desc:'Fpp battle royal',
+    image:'/gameimg.jpg',
+  },
+  {
+    id:'gameff',
+    name:'freefire',
+    desc:'Garena Freefire Max',
+    image:'/gameimg.jpg',
+  },
+  {
+    id:'gamefortnite',
+    name:'Fortnite',
+    desc:'Most loved battle royal',
+    image:'/gameimg.jpg',
+  }
+]
+export { links, admin, events, games }
