@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import App from './App';
 import { NavBar, Sidebar, Footer, Homepage} from './js/temp';
 import reportWebVitals from './reportWebVitals';
 
@@ -26,7 +27,7 @@ function loadTemp() {
     </React.StrictMode>
   );
 }
-function homeLoad() {
+function homeLoad(){
   const Home = ReactDOM.createRoot(document.getElementById('main'));
   Home.render(
     <React.StrictMode>
@@ -34,36 +35,15 @@ function homeLoad() {
     </React.StrictMode>
   );
 }
-
 window.onload = () => {
-  switch (window.location.pathname) {
-    case '/':
-      loadTemp();
-      homeLoad();
-      document.title = 'Home';
-      break;
-    default:
-      document.title = '404 Error';
-      alert('404 Error');
-      break;
+  switch(window.location.pathname){
+    case '/' : loadTemp()
+    homeLoad();
+    break;
+    default: alert('404 Error');
+    break;
   }
-
-  // Listen for visibility change
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-      switch (window.location.pathname) {
-        case '/':
-          document.title = 'Home';
-          break;
-        default:
-          document.title = '404 Error';
-          break;
-      }
-    } else {
-      document.title = 'Come back';
-    }
-  });
+  
 };
-
 
 reportWebVitals();

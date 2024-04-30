@@ -15,13 +15,8 @@ import gstore from '../resources/icons8-playstore-48.png'
 import appstore from '../resources/icons8-app-store-48.png'
 import { toggleNav, togSide, toggleUser } from './function'
 import users from '../database/userdb';
-import gameimg from '../resources/gameimg.jpg'
-import { links, admin, events, games } from '../database/db1'
+import { links, admin, events } from '../database/db1'
 // import egame from '../resources/hero-egame.jpg'
-import React, { useState } from 'react';
-
-
-
 function NavBar() {
   return (
     <div className="nav">
@@ -45,10 +40,10 @@ function NavBar() {
           </a>
           <div className="user-opt" id="userOpt">
             <ul>
-              <li><a href="#">My profile</a></li>
-              <li><a href="#">Dashboard</a></li>
-              <li><a href="#">leaderboards</a></li>
-              <li><a href="#">Notices</a></li>
+              <li><a href="">My profile</a></li>
+              <li><a href="">Dashboard</a></li>
+              <li><a href="">leaderboards</a></li>
+              <li><a href="">Notices</a></li>
             </ul>
           </div>
         </div>
@@ -60,7 +55,7 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div className="side-close">
-        <button id="togglesidebar" onClick={toggleNav} href="#"><img src={cross} alt="" /></button>
+        <a id="togglesidebar" onClick={toggleNav} href="#"><img src={cross} alt="" /></a>
       </div>
       <div className="sidebar-content">
         <div className="logo">
@@ -81,22 +76,22 @@ function Sidebar() {
         <hr />
         <div className="side-main">
           <ul>
-            <li><a href="#">Link1</a></li>
-            <li><a href="#">Link2</a></li>
+            <li><a href="">Link1</a></li>
+            <li><a href="">Link2</a></li>
             <li className="dropdown2" id="dropdown">
               <a href="#" onClick={togSide}>Link3
                 <img id="tog-img" src={dropdown} alt="" />
               </a>
               <ul className="dropdown-menu2" id="dropdown-menu">
-                <li><a href="#">submenu</a></li>
-                <li><a href="#">submenu</a></li>
-                <li><a href="#">submenu</a></li>
-                <li><a href="#">submenu</a></li>
-                <li><a href="#">submenu</a></li>
+                <li><a href="">submenu</a></li>
+                <li><a href="">submenu</a></li>
+                <li><a href="">submenu</a></li>
+                <li><a href="">submenu</a></li>
+                <li><a href="">submenu</a></li>
               </ul>
             </li>
-            <li><a href="#">Link4</a></li>
-            <li><a href="#">Link5</a></li>
+            <li><a href="">Link4</a></li>
+            <li><a href="">Link5</a></li>
           </ul>
         </div>
         <hr />
@@ -205,8 +200,8 @@ function Footer() {
             </address>
           </div>
           <div className="fab2">
-            <a href="#"><img src={appstore} alt="App store" /></a>
-            <a href="#"><img src={gstore} alt="Play store" /></a>
+            <a href=""><img src={appstore} alt="App store" /></a>
+            <a href=""><img src={gstore} alt="Play store" /></a>
           </div>
           <div className="fab3">
             <a href={admin.facebook}><img src={facebook} alt="facebook" /></a>
@@ -232,25 +227,13 @@ function Footer() {
   )
 };
 function Homepage() {
-  const [selectedFilter, setSelectedFilter] = useState("all");
-  const handleFilterChange = (event) => {
-    setSelectedFilter(event.target.value);
-  };
-  const filteredEvents = events.filter(eventitem => {
-    if (selectedFilter === "all") {
-      return true;
-    } else {
-      return Object.values(eventitem).some(value => value.toLowerCase() === selectedFilter);
-    }
-  });
-
   return (
     <div>
       <div id="hero">
         <div className="hero">
           <div className="filbtm">
             <h1>Some stories never end!</h1>
-            <h2>Create your team. | Join the Tournament. | Battle till the last breath.</h2>
+            <h2>Create your team. || Join the Tournament. || Battle till the last breath.</h2>
             <div className="btn">
               <button className="primary-btn">Register Now</button>
               <button className="secondary-btn">Discover Tournaments</button>
@@ -258,92 +241,27 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div className='featured'>
-      <h2>Some featured Tournaments Chosen for you</h2>
       <div className="scroll" id="scroll">
-        {events.filter(eventitem => Object.values(eventitem).some(value => value.toLowerCase() === "featured".toLowerCase()))
-          .map(eventitem => (
-            <div className="scr-card" key={eventitem.key}>
-              <div className="scr-img">
-                <img src={eventitem.image} alt="" />
-              </div>
-              <h2>{eventitem.name}</h2>
-              <ul>
-                <li id="price"><i className="fas fa-ticket-alt"></i>{eventitem.price}</li>
-                <li id="schedule"><i className="fas fa-calendar"></i>{eventitem.schedule}</li>
-                <li id="mode"><i className="fas fa-map-marker-alt"></i>{eventitem.mode}</li>
-              </ul>
-              <div className="scr-btn">
-                <button className="scr-join">Join now</button>
-                <button className="save"><i className="fas fa-bookmark"></i></button>
-              </div>
-              <div className="tag">{eventitem.status}</div>
-              <div className="tag-featured" style={{ backgroundColor: eventitem.bg }}>{eventitem.featured}</div>
-            </div>
-          ))}
-      </div>
+        {events.map(eventitem =>(
+          <div className="scr-card">
+          <div className="scr-img">
+            <img src={eventitem.image} alt="" />
+          </div>
+          <h2>{eventitem.name}</h2>
+          <ul>
+            <li id="price"><i className="fas fa-ticket-alt"></i>{eventitem.price}</li>
+            <li id="schedule"><i className="fas fa-calendar"></i>{eventitem.schedule}</li>
+            <li id="mode"><i className="fas fa-map-marker-alt"></i>{eventitem.mode}</li>
+          </ul>
+          <div className="scr-btn">
+            <a className="scr-join">Join now</a>
+            <a className="save"><i className="fas fa-bookmark"></i></a>
+          </div>
+          <div className="tag">{eventitem.status}</div>
+        </div>
+        ))}
       </div>
       <section className="section1" id="section1">
-        <h2>Tournaments</h2>
-        <p>Upcoming || Live || Completed</p>
-        <div className='qfilter'>
-          {/* Select dropdown for filtering */}
-          <label>Filter by:</label>
-          <select value={selectedFilter} onChange={handleFilterChange}>
-            <option value='all'>All</option>
-            <option value="featured">Featured</option>
-            <option value="recent">Recent</option>
-            <option value='free'>Free</option>
-            <option value='● live'>● Live</option>
-            <option value='coming soon'>Coming soon</option>
-            <option value='double elimination'>Double Elimination</option>
-            <option value='round robin'>Round Robin</option>
-            <option value='analyzing'>Analyzing</option>
-          </select>
-        </div>
-        <div className='events' id='events'>
-          {filteredEvents
-            .slice(0, 12)
-            .map(eventitem => (
-              <div className="scr-card" key={eventitem.key}>
-                <div className="scr-img">
-                  <img src={eventitem.image} alt="" />
-                </div>
-                <h2>{eventitem.name}</h2>
-                <ul>
-                  <li id="price"><i className="fas fa-ticket-alt"></i>{eventitem.price}</li>
-                  <li id="schedule"><i className="fas fa-calendar"></i>{eventitem.schedule}</li>
-                  <li id="mode"><i className="fas fa-map-marker-alt"></i>{eventitem.mode}</li>
-                </ul>
-                <div className="scr-btn">
-                  <button className="scr-join">Join now</button>
-                  <button className="save"><i className="fas fa-bookmark"></i></button>
-                </div>
-                <div className="tag">{eventitem.status}</div>
-                <div className="tag-featured" style={{ backgroundColor: eventitem.bg }}>{eventitem.featured}</div>
-              </div>
-            ))}
-        </div>
-        <a href='/tournaments' className="primary-btn">View more</a>
-      </section>
-      <hr />
-      <section className="section2" id="section2">
-        <h2>Games, That we are available with!</h2>
-        <div className='game-row' id='game-row'>
-          {games.map(game => (
-            <div className='game-card' key={game.id} id='game-card'>
-              <img src={game.image} alt="" />
-              <div className='gcard-blur'>
-                <h2>{game.name}</h2>
-                <p>{game.desc}</p>
-                <a>Play now</a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      <hr />
-      <section className="section3" id="section3">
       </section>
     </div>
   )
